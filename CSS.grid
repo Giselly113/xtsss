@@ -1,0 +1,258 @@
+/* CSS Global */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #40106d;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 10px;
+    position: relative; /* Adiciona a posição relativa para o botão de pesquisa */
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 4px rgb(255, 253, 253);
+}
+
+.search-bar button {
+    background: url('https://img.icons8.com/material-outlined/24/search.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px; /* Posiciona o botão no lado direito da barra de pesquisa */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente o botão */
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    background: url('https://img.icons8.com/material-outlined/24/shopping-cart.png') no-repeat center center;
+    background-size: contain;
+}
+
+.cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.slider {
+    position: relative;
+    max-width: 100%;
+    height: 300px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.product {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: calc(50% - 20px); /* 2 produtos por linha */
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 200px; /* Altura fixa para a imagem */
+    object-fit: contain; /* Ajusta a imagem para preencher o espaço sem distorcer */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.product .sub-price {
+    text-decoration: line-through;
+    color: #ad0404;
+}
+
+.product .price {
+    font-weight: 700;
+    color: #000000;
+    margin: 5px 0;
+}
+
+.price-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #52125a;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.price-button:hover {
+    background-color: #000000;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .social-links a {
+    margin: 0 10px;
+    color: #fff;
+}
+
+.newsletter {
+    background-color: #5e05b1;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 250px; /* Ajusta a largura do campo de e-mail */
+    margin-right: 10px;
+}
+
+.newsletter input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3d03a1;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Consultas de Mídia para Dispositivos Móveis */
+@media (max-width: 768px) {
+    .product {
+        width: calc(50% - 20px); /* 2 produtos por linha */
+    }
+
+    .search-bar input {
+        width: calc(100% - 46px); /* Ajusta a largura da barra de pesquisa */
+    }
+
+    .newsletter input[type="email"] {
+        width: calc(100% - 120px); /* Ajusta a largura da caixa de e-mail */
+    }
+
+    .cart {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar {
+        margin-top: 10px;
+    }
+
+    .product {
+        width: calc(100% - 20px); /* 1 produto por linha em telas menores */
+    }
+
+    .newsletter input[type="email"] {
+        width: calc(100% - 120px); /* Ajusta a largura da caixa de e-mail */
+    }
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BELLEMIX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #40106d;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 2px 4px rgb(255, 253, 253);
+        }
+        .search-bar button {
+            background: url('https://img.icons8.com/material-outlined/24/search.png') no-repeat center center;
+            background-size: contain;
+            border: none;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            border-radius: 50%;
+            margin-left: -45px;
+            position: relative;
+            z-index: 1;
+        }
+        .cart {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .cart-icon {
+            width: 24px;
+            height: 24px;
+            background: url('https://img.icons8.com/material-outlined/24/shopping-cart.png') no-repeat center center;
+            background-size: contain;
+        }
+        .cart-counter {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: space-between;
+        }
+        .product {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            width: calc(50% - 20px); /* Ajusta para 2 produtos por linha */
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 100%;
+            height: 200px; /* Altura fixa para a imagem */
+            object-fit: contain; /* Ajusta a imagem para preencher o espaço sem distorcer */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .product .sub-price {
+            text-decoration: line-through;
+            color: #ad0404;
+        }
+        .product .price {
+            font-weight: 700;
+            color: #000000;
+            margin: 5px 0;
+        }
+        .price-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #52125a;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        .price-button:hover {
+            background-color: #000000;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer .social-links a {
+            margin: 0 10px;
+            color: #fff;
+        }
+        .newsletter {
+            background-color: #5e05b1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 300px;
+            margin-right: 10px;
+        }
+        .newsletter input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3d03a1;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Consultas de Mídia para Dispositivos Móveis */
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); /* 2 produtos por linha */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: calc(50% - 20px); /* 2 produtos por linha */
+            }
+        }
+    </style>
+</head>
+<body>
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BELLEMIX</h1>
+    <div class="nav-menu">
+        <a href="#">Inicio</a>
+        <a href="#">Produtos</a>
+        <a href="#">Contato</a>
+    </div>
+</div>
+
+    <div class="cart" onclick="window.location.href='checkout.html'">
+        <div class="cart-icon"></div>
+        <div class="cart-counter" id="cart-counter">0</div>
+    </div>
+</header>
+
+<div class="slider">
+    <img src="https://export-download.canva.com/qSrhk/DAGOtkqSrhk/3/0/0001-6135467590619408922.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJHKNGJLC2J7OGJ6Q%2F20240829%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240829T084701Z&X-Amz-Expires=50445&X-Amz-Signature=1ccb15b7cf0c3a570579047413ae5924675b9d4f6a9f8b13c268b6cc6a939fb1&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27Banner%2520para%2520mercado%2520shops%2520m%25C3%25A9dio%2520de%2520black%2520friday%2520minimalista%2520de%2520cosm%25C3%25A9ticos%2520cinza.jpg&response-expires=Thu%2C%2029%20Aug%202024%2022%3A47%3A46%20GMT" alt="Promoção Atual">
+    <!-- Substitua o link da imagem com o URL da imagem do slider -->
+</div>
+
+    <div class="product-grid" id="product-grid">
+        <!-- Lista de Produtos Lola Cosméticos -->
+        <div class="product">
+            <img src="https://lolacosmetics.jetassets.com.br/produto/20201123175717_8088991912_H.png" alt="Máscara de Hidratação Lola - 250g">
+            <h3>Máscara Morte Súbita 450g</h3>
+            <div class="sub-price">R$ 55,00</div>
+            <div class="price">R$ 45,00</div>
+            <a href="https://pag.ae/7-SHuQ219" class="price-button">Comprar</a>
+            </div>
+        <div class="product">
+            <img src="https://lolacosmetics.jetassets.com.br/produto/20210917163436_3699996301_H.png" alt=" Densidade Acidificante 250g">
+            <h3> Densidade Acidificante 250g</h3>
+            <div class="sub-price">R$ 45,00</div>
+            <div class="price">R$ 35,00</div>
+            <a href="https://pag.ae/7-SP1Zqm9" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61gqWl5UwtL._AC_SX425_.jpg" alt="Densidade Máscara 230G">
+            <h3>Dove Desodorante Creme Reparação Diária 50 g</h3>
+            <div class="sub-price">R$ 23,90</div>
+            <div class="price">R$ 15,99</div>
+            <a href="https://pag.ae/7-SP72Zr9" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61lXcxCQQqL._AC_SY879_.jpg" alt="Pinga Cenoura E Oliva 50ml">
+            <h3>Pinga Cenoura E Oliva 50ml</h3>
+            <div class="sub-price">R$ 40,00</div>
+            <div class="price">R$ 26,90</div>
+            <a href="https://pag.ae/7-SNLYqYQ" class="price-button">Comprar</a>
+        </div>
+        <!-- Produtos adicionais -->
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/41W+ESurKAL._AC_SY300_SX300_.jpg" alt="Rapunzel Milk - Spray Leave-in 250ml">
+            <h3>Rapunzel Milk - Spray Leave-in 250ml</h3>
+            <div class="sub-price">R$ 55,00</div>
+            <div class="price">R$ 38,99</div>
+            <a href="https://pag.ae/7-SPnHX69" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/41pcPqDerNL._AC_SX425_.jpg" alt="Oléo Lola Pinga Açai e Pracaxi">
+            <h3>Oléo Lola Pinga Açai e Pracaxi 50ml</h3>
+            <div class="sub-price">R$ 45,00</div>
+            <div class="price">R$ 26,90</div>
+            <a href="https://pag.ae/7-SNLYqYQ" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/614jr8lShpL._AC_SX522_.jpg" alt="Danos Vorazes Booster 250Ml">
+            <h3>Creme Para Pentear Seda Boom Definição 1Kg</h3>
+            <div class="sub-price">R$ 55,90</div>
+            <div class="price">R$ 34,90</div>
+            <a href="https://pag.ae/7-SPoiwxL" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71zVCm+YLpL._AC_SY550_.jpg" alt="Manteiga Chá Latte - Jasmim E Leite Vegetal">
+            <h3>Manteiga Chá Latte - Jasmim E Leite Vegetal</h3>
+            <div class="sub-price">R$ 55,00</div>
+            <div class="price">R$ 47,23</div>
+            <a href="https://pag.ae/7-SP3q_b5" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51ImkBpvvtL._AC_SX522_.jpg" alt="Gelatina salon line 1kg">
+            <h3>Gelatina salon line Super Definição 1kg</h3>
+            <div class="sub-price">R$ 35,00</div>
+            <div class="price">R$ 29,33</div>
+            <a href="https://pag.ae/7-SP4xn9u" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61ZmOBGPDYL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Gelatina salon line 550g">
+            <h3>Gelatina salon line Super Definição 550g</h3>
+            <div class="sub-price">R$ 28,00</div>
+            <div class="price">R$ 25,99</div>
+            <a href="https://pag.ae/7-SP1jTS2" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/613Dg0V0cOL._AC_SX425_.jpg" alt="Salon Line, Kit Shampoo e Condicionador Infantil, Hidra Multy, Vegano 300ml">
+            <h3>Kit Hidra Multy Salon Line 300ml</h3>
+            <div class="sub-price">R$ 25,00</div>
+            <div class="price">R$ 21,90</div>
+            <a href="https://pag.ae/7-SP5kszn" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61F8AA2zq+L._AC_SY300_SX300_.jpg" alt="Creme salon line Baby 300ml">
+            <h3>Morte Súbita - Condicionador 250ml</h3>
+            <div class="sub-price">R$ 41,50</div>
+            <div class="price">R$ 26,89</div>
+            <a href="https://pag.ae/7-SP6vUeq" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51zpdZ1GL6L._AC_SX425_.jpg" alt="Máscara Densidade 230g">
+            <h3>Máscara Lola Densidade 230g</h3>
+            <div class="sub-price">R$ 19,00</div>
+            <div class="price">R$ 15,99</div>
+            <a href="https://pag.ae/7-SHvoVxH class=" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://down-br.img.susercontent.com/file/cn-11134207-7r98o-lpj62azql85bad" alt="Óleo para Banho - 200ml">
+            <h3>Grampo De Cabelo De Caranguejo Acrílico </h3>
+            <div class="sub-price">R$ 21,40</div>
+            <div class="price">R$ 8,39</div>
+            <a href="https://pag.ae/7-SP7FoCL" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lt5t4udlnbr35e" alt="Creme Anticelulite - 200ml">
+            <h3>Kit 05 Toalhas de Banho macia</h3>
+            <div class="sub-price">R$ 99,00</div>
+            <div class="price">R$ 85,99</div>
+            <a href="https://pag.ae/7-SPbKmr2" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://down-br.img.susercontent.com/file/d7ebd7a3dd3ff093364675b3503b9834" alt="Loção Hidratante para o Corpo - 400ml">
+            <h3>100 Peças De Elásticos Descartáveis </h3>
+            <div class="sub-price">R$12,80</div>
+            <div class="price">R$ 5,01</div>
+            <a href="https://pag.ae/7-SPcbwM2" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://down-br.img.susercontent.com/file/br-11134207-7qukw-li0imlhu4tvyf9" alt="Máscara de Cabelo Nutritiva - 500g">
+            <h3>Kit Presilhas Jacaré C/ 12 Und</h3>
+            <div class="sub-price">R$ 19,00</div>
+            <div class="price">R$ 20,99</div>
+            <a href="https://pag.ae/7-SPcLo9q" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51-5DlSeQOL._AC_SX569_.jpg" alt="Creme para os Pés - 75ml">
+            <h3>Huggies Extra Suave - Colônia 100ml</h3>
+            <div class="sub-price">R$ 25,00</div>
+            <div class="price">R$ 17,23</div>
+            <a href="https://pag.ae/7-SPg26g5" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51ibMVjXOGL._AC_SX522_.jpg" alt="Spray Refrescante para o Corpo - 150ml">
+            <h3>Shampoo Dove Glicerinada 400Ml</h3>
+            <div class="sub-price">R$ 40,00</div>
+            <div class="price">R$ 18,99</div>
+            <a href="https://pag.ae/7-SPdKfX2" class="price-button">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/41JOsOOHiZL._AC_SX569_.jpg" alt="Hidratante Labial - 15g">
+            <h3>Sabonete Líquido Baby 400ml</h3>
+            <div class="sub-price">R$ 20,00</div>
+            <div class="price">R$ 18,79</div>
+            <a href="https://pag.ae/7-SPedxsL" class="price-button">Comprar</a>
+        </div>
+    </div>
+    
+    </body>
+    </html>
+    <!-- Adicione mais produtos aqui -->
+</div>
+
+<div class="newsletter">
+    <h2>Inscreva-se para Receber Ofertas Exclusivas</h2>
+    <form>
+        <input type="email" placeholder="Seu e-mail">
+        <input type="submit" value="Inscrever-se">
+    </form>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Bellemix | <a href="https://www.bellemix.com.br">www.bellemix.com.br</a> | <a href="politica-privacidade.html">Política de Privacidade</a> | <a href="termos-condicoes.html">Termos e Condições</a></p>
+    <div class="social-links">
+        <a href="https://www.instagram.com/bellemixcosmeticos/">Instagram</a>
+    </div>
+</div>
+
+
+</script>
+
+<script>
+    let cart = [];
+
+    function addToCart(event) {
+        const button = event.target;
+        if (button.classList.contains('price-button')) {
+            const product = button.parentElement;
+            const id = product.getAttribute('data-id');
+            const name = product.getAttribute('data-name');
+            const price = parseFloat(product.getAttribute('data-price'));
+
+            const existingProduct = cart.find(item => item.id === id);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+
+            updateCartCounter();
+        }
+    }
+
+    function updateCartCounter() {
+        const cartCounter = document.getElementById('cart-counter');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCounter.textContent = totalItems;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('product-grid').addEventListener('click', addToCart);
+    });
+</script>
+<script>
+    document.getElementById('search-button').addEventListener('click', function() {
+        var query = document.getElementById('search-input').value;
+        if (query) {
+            alert('Você pesquisou por: ' + query);
+        } else {
+            alert('Digite um termo de busca.');
+        }
+    });
+</script>
+
+</body>
+</html>
+
